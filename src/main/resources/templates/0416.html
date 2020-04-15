@@ -1,0 +1,61 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>上传报价单</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/commodity-batch.css}" />
+    <link rel="stylesheet" th:href="@{/css/icon-font/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/icon-font/ie7/ie7.css}" />
+</head>
+<body>
+<!--<div  th:replace="/layout/header:: header"></div>-->
+<div class="content width_1200 clearfix">
+    <!--<div  th:replace="/layout/side-nav:: sidebar"></div>-->
+    <input id="menu" type="hidden" value="productBatch">
+
+    <div class="commodity-content">
+        <div class="commodity-batch-title">批量发布产品</div>
+        <div class="commodity-batch-info">
+            <div class="commodity-batch-info-title">温馨提示：</div>
+            <p>1、请您联系客户经理并上传产品报价单，我们会在3个工作日审核完成；</p>
+            <p>2、文件数据内容：产品图片/产品名称/规格型号/价格；</p>
+            <!--<p>3、产品图片类型：jpg/bmp，尺寸250*250，文件大小低于200K，图片清晰文字可辨；</p>-->
+            <!--<p>客户经理：<span th:text="${session.GlodonSession.extendBean.gcjsession.clientManager}">周逸凡</span>-->
+                <!--<span th:text="${session.GlodonSession.extendBean.gcjsession.clientManagerPhone}">18801124217</span>-->
+            <!--</p>-->
+        </div>
+        <div class="commodity-batch-btns">
+            <span class="commodity-batch-upload fileinput-button">
+                <i class="gl_icon_upload"></i>上传报价单
+                <input id="fileUploadName" type="file" name="fileData" multiple>
+            </span>
+            <!--<span class="commodity-batch-download"><i class="gl_icon_download"></i>下载报价单模板</span>-->
+        </div>
+
+        <div class="commodity-batch-main">
+            <div class="commodity-batch-item-top clearfix">
+                <div class="commodity-batch-first">上传时间</div>
+                <div class="commodity-batch-two">上传人</div>
+                <div class="commodity-batch-three">报价单名称</div>
+                <div class="commodity-batch-four">提交状态</div>
+                <div class="commodity-batch-five">审核意见</div>
+                <div class="commodity-batch-six">审核人</div>
+                <div class="commodity-batch-seven">联系电话</div>
+            </div>
+            <div class="commodity-batch-list" id="myDiv"></div>
+        </div>
+    </div>
+</div>
+<!--<script th:src="@{/js/commodityManagement/commodity-batch.js}"></script>-->
+<!--<div  th:replace="/layout/foot:: footer"></div>-->
+</body>
+<!--<div  th:replace="/layout/foot:: footerjs"></div>-->
+</html>
