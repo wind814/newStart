@@ -12,9 +12,6 @@ public class NewStartController {
 
     @RequestMapping(value="/getStart",method = RequestMethod.GET)
     public String getStart(@PathVariable("id") String id) {
-
-        System.out.println("new111333555531");
-
         return id;
     }
 
