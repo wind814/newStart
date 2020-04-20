@@ -1,0 +1,21 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: html
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    content-type: text/html
+    cache: false
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/wind_0415?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  type-aliases-package: com.wind.newStart.entity
+  config-locations: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
