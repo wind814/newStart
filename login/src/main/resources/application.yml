@@ -11,7 +11,7 @@ spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/wind_0415?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
-    password: root
+    password: SZenHj3wx/y1Y1VsifLudNvi9PRb6PLA6/BFyYCA2QtgeBgkcwlF9qkLi3pR82yUT1FY0I1aCAM/TvAMZK3Tbw==
     driverClassName: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
@@ -20,3 +20,6 @@ mybatis:
   config-locations: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
 
+-Ddruid:
+  config:
+    decrypt: true
