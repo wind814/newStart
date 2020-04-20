@@ -7,8 +7,9 @@ spring:
     content-type: text/html
     cache: false
 
+#  serverTimezone=UTC 不加会因为时区问题报错
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/wind_0415?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://127.0.0.1:3306/wind_0415?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
     password: root
     driverClassName: com.mysql.cj.jdbc.Driver
