@@ -14,12 +14,15 @@ spring:
     password: SZenHj3wx/y1Y1VsifLudNvi9PRb6PLA6/BFyYCA2QtgeBgkcwlF9qkLi3pR82yUT1FY0I1aCAM/TvAMZK3Tbw==
     driverClassName: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-
+    druid:
+      filter:
+        config:
+          decrypt: true
 mybatis:
   type-aliases-package: com.wind.newStart.entity
   config-locations: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
 
--Ddruid:
+dataSource:
   config:
     decrypt: true
