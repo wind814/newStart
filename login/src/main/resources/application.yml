@@ -18,6 +18,16 @@ spring:
       filter:
         config:
           decrypt: true
+  activemq:
+    broker-url:
+
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 1000
+
 mybatis:
   type-aliases-package: com.wind.newStart.entity
   config-locations: classpath:mybatis/mybatis-config.xml
