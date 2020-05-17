@@ -6,6 +6,7 @@
 	<modules>
 		<module>eureka</module>
 		<module>login</module>
+		<module>annotations</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

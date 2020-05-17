@@ -23,7 +23,7 @@ CREATE TABLE `account` (
   `id` bigint(20) NOT NULL,
   `account_name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `create_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `create_at` timestamp NOT NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `update_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `last_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
