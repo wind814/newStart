@@ -28,6 +28,12 @@ spring:
     password:
     timeout: 1000
 
+          enabled: true
+
+config:
+  decrypt:
+    key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKAqpWlaouC2mxqZrGIVjbQ1IYrj3AeiSx/umuQICqUY6KBdRetNUXWbg4OpW2OOU3LGTE/BI+GD2hsSfgTe4z0CAwEAAQ==
+
 mybatis:
   type-aliases-package: com.wind.newStart.entity
   config-locations: classpath:mybatis/mybatis-config.xml
