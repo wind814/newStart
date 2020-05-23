@@ -7,20 +7,25 @@ spring:
     content-type: text/html
     cache: false
 
+
 #  serverTimezone=UTC 不加会因为时区问题报错
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/wind_0415?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
-    password: SZenHj3wx/y1Y1VsifLudNvi9PRb6PLA6/BFyYCA2QtgeBgkcwlF9qkLi3pR82yUT1FY0I1aCAM/TvAMZK3Tbw==
+    # password root
+    password: cpaIVG3A8yKLpVcShz8IySfSUrcCRwOQZR352tv2Zmh2Efs1v8UzlUVaZx/v3nyfBPufxQnvPVlAVFIm1Kh7pQ==
     driverClassName: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
+      connection-properties: config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIVsH0OcbBVZ52NxckzaD9Utbt3rxLmrryLpXV+0mfb82F7cNFfY6zzfmcvEoIPnSFacsNS1SQWVJH3Z7wcFIMsCAwEAAQ==
       filter:
         config:
-          decrypt: true
-  activemq:
-    broker-url:
+          enabled: true
 
+#  activemq:
+#    broker-url:
+
+#reids
   redis:
     database: 0
     host: 127.0.0.1
@@ -28,17 +33,7 @@ spring:
     password:
     timeout: 1000
 
-          enabled: true
-
-config:
-  decrypt:
-    key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKAqpWlaouC2mxqZrGIVjbQ1IYrj3AeiSx/umuQICqUY6KBdRetNUXWbg4OpW2OOU3LGTE/BI+GD2hsSfgTe4z0CAwEAAQ==
-
 mybatis:
   type-aliases-package: com.wind.newStart.entity
   config-locations: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
-
-dataSource:
-  config:
-    decrypt: true

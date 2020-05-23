@@ -1,5 +1,6 @@
 package com.wind.login.controller;
 
+import com.alibaba.druid.filter.config.ConfigTools;
 import com.wind.login.dao.AccountMapper;
 import com.wind.login.dao.RankScoreMapper;
 import com.wind.login.entity.Account;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/record/{account}/")
@@ -44,8 +46,30 @@ public class LoginController {
         }
 
         @RequestMapping(value = "rankList" , method = RequestMethod.GET)
-        public RankScore getRankList(@PathVariable("account") String id){
-            return rankScoreMapper.selectByPrimaryKey(id);
+        public String getRankList(@PathVariable("account") Long id){
+
+            RankScore rankScore = new RankScore(2L,"200");
+
+            rankScoreMapper.insert(rankScore);
+
+            rankScore = rankScoreMapper.selectByPrimaryKey(id);
+
+            return rankScore.getScore();
         }
+
+
+    public static void main(String[] args) {
+        try {
+            String password = "root";
+            String[] arr = ConfigTools.genKeyPair(512);
+
+            // System.out.println("privateKey:" + arr[0]);
+            System.out.println("publicKey:" + arr[1]);
+            System.out.println("password:" + ConfigTools.encrypt(arr[0], password));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

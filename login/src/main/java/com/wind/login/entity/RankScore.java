@@ -6,6 +6,11 @@ import java.util.Date;
 
 public class RankScore {
 
+    public RankScore(Long accountId,String score){
+        this.accountId = accountId;
+        this.score = score;
+    }
+
     @Id
     private Long id;
     private Long accountId;
