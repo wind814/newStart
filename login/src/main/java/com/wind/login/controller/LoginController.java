@@ -5,6 +5,8 @@ import com.wind.login.dao.AccountMapper;
 import com.wind.login.dao.RankScoreMapper;
 import com.wind.login.entity.Account;
 import com.wind.login.entity.RankScore;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,11 +15,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @RestController
 @RequestMapping("/v1/record/{account}/")
 public class LoginController {
+
+        private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+
+        private static final Logger wind0415Single = LoggerFactory.getLogger("wind_0415_single");
+
 
         @Autowired
         private AccountMapper accountMapper;
@@ -50,9 +56,11 @@ public class LoginController {
 
             RankScore rankScore = new RankScore(2L,"200");
 
+            wind0415Single.debug("wind0415Single:   rankScore score = " + rankScore.getScore());
+
             rankScoreMapper.insert(rankScore);
 
-            rankScore = rankScoreMapper.selectByPrimaryKey(id);
+            rankScore = rankScoreMapper.selectByPrimaryKey(id.longValue());
 
             return rankScore.getScore();
         }
@@ -64,8 +72,8 @@ public class LoginController {
             String[] arr = ConfigTools.genKeyPair(512);
 
             // System.out.println("privateKey:" + arr[0]);
-            System.out.println("publicKey:" + arr[1]);
-            System.out.println("password:" + ConfigTools.encrypt(arr[0], password));
+            logger.debug("publicKey:" + arr[1]);
+            logger.debug("password:" + ConfigTools.encrypt(arr[0], password));
         } catch (Exception e) {
             e.printStackTrace();
         }

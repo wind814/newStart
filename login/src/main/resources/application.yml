@@ -37,3 +37,6 @@ mybatis:
   type-aliases-package: com.wind.newStart.entity
   config-locations: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
