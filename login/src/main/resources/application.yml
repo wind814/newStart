@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: login_service
   thymeleaf:
     prefix: classpath:/templates/
     suffix: html
@@ -16,11 +18,36 @@ spring:
     password: cpaIVG3A8yKLpVcShz8IySfSUrcCRwOQZR352tv2Zmh2Efs1v8UzlUVaZx/v3nyfBPufxQnvPVlAVFIm1Kh7pQ==
     driverClassName: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+
     druid:
+#     配置初始化大小、最小、最大
+      initial-size: 5
+      min-idle: 10
+      maxActive: 20
+
+#     配置获取连接等待超时的时间
+      max-wait: 60000
+
+#     配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 2000
+
+#     配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 600000
+      max-evictable-idle-time-millis: 900000
+
+#     preparedStatement缓存,如果数据库使用游标,则提升巨大,比如ORACLE ,mysql就不必了。
+#     pool-prepared-statements: true
+#     max-open-prepared-statements: 20
+
+      keepAlive: true
+      filters: stat
       connection-properties: config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIVsH0OcbBVZ52NxckzaD9Utbt3rxLmrryLpXV+0mfb82F7cNFfY6zzfmcvEoIPnSFacsNS1SQWVJH3Z7wcFIMsCAwEAAQ==
       filter:
         config:
           enabled: true
+
+
+
 
 #  activemq:
 #    broker-url:
@@ -40,3 +67,8 @@ mybatis:
 #  configuration:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8762/eureka/
