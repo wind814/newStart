@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: configuration_service
+  cloud:
+      config:
+        discovery:
+          enabled: true
+        server:
+          encrypt.enabled: false
+          git:
+            uri: https://github.com/wind814/config-yml
+            searchPaths: login_service
+            username: wind814
+            password: whn8130566
+server:
+  port: 8888
+
