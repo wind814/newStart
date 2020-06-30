@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: fegin_service
+server:
+  port: 8081
+# spring cloud eureka
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8762/eureka/

@@ -8,7 +8,8 @@
 		<module>login</module>
 		<module>annotations</module>
 		<module>configuration</module>
-	</modules>
+        <module>fegin</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>

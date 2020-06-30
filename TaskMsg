@@ -1,0 +1,9 @@
+2020-06-30
+1、增加了Fegin的使用
+2、Fegin不支持_,所以之前的login_service 全部修改为驼峰形式。  loginService.
+3、GitHub 修改了名称,但是程序一直访问不成功,不知道什么情况。(可以访问了。)
+4、我发现,当login项目,访问不到configuration项目的时候,或者获取不到配置信息的时候,会默认获取resource
+下面config文件下面的yml文件。
+5、Fegin项目现在可以远程本地化调用login的接口了。但是不问题,当一个节点的时候,有时候找不到loginService.
+6、Eureka注册这个方面还需要再看一下。有问题。
+
