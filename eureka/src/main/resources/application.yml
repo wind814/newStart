@@ -2,13 +2,17 @@
 server:
   port: 8762
 
+#Eureka 注册每个服务  至少需要30S  需要3次ping成功
 eureka:
   client:
+    #本身为Eureka Server,不需要自己注册自己
     registerWithEureka: false
+    #不需要本地缓存  本地缓存每30S联系Eureka一次
     fetchRegistry: false
     serviceUrl:
         defaultZone: http://localhost:8762
-  server:
-    waitTimeInMsWhenSyncEmpty: 5
+#  server:
+    #每个服务最多等待5分钟  可以去掉
+    #waitTimeInMsWhenSyncEmpty: 5
 
 
