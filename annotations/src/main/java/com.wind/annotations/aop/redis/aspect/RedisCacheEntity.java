@@ -30,6 +30,9 @@ public class RedisCacheEntity extends AspectAbs {
 	@Autowired
 	private StringRedisTemplate redisTemplate;
 
+	@Autowired
+	private RedisUtil redisUtil;
+
 	@Pointcut("@annotation(com.wind.annotations.aop.redis.annotation.RedisCacheAspect)")
 	public void RedisCachePointcut() {
 	}
@@ -57,7 +60,8 @@ public class RedisCacheEntity extends AspectAbs {
 			if(result == null){
 				Object o = pjp.proceed();
 				String s = JSON.toJSONString(o);
-				RedisUtil.getInstance().setString(redisKeyEnum,s,id);
+				redisTemplate.opsForValue().set(id,s);
+				//RedisUtil.getInstance().setString(redisKeyEnum,s,id);
 				return o;
 			}
 			return result;
@@ -87,16 +91,16 @@ public class RedisCacheEntity extends AspectAbs {
 	public Object doGetRedisDataByType(RedisCacheTypeEnum resultType, RedisKeyEnum redisKeyEnum, Class cl, String id){
 
 		if(RedisCacheTypeEnum.LIST.equals(resultType)) {
-			return RedisUtil.getInstance().getListObject(redisKeyEnum,cl,id);
+			return redisUtil.getListObject(redisKeyEnum,cl,id);
 		}
 
 		if(RedisCacheTypeEnum.OBJ.equals(resultType)) {
-			return RedisUtil.getInstance().getObject(redisKeyEnum,cl,id);
+			return redisUtil.getObject(redisKeyEnum,cl,id);
 		}
 
 		if(RedisCacheTypeEnum.STRING.equals(resultType)) {
 
-			return RedisUtil.getInstance().getString(redisKeyEnum,id);
+			return redisUtil.getString(redisKeyEnum,id);
 		}
 
 		return null;

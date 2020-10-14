@@ -18,3 +18,6 @@
 2、之前测试redis写了一些代码，我测试之后会进行提交。
 3、fegin里面新增的pointController还没有完成，后续在修改。
 
+2020-10-14
+1、fegin-point 关联 redisServer
+2、有问题：redisServer addString的时候，会在db0、db8同时添加。 需要看一下。（因为注解的问题。我把注解注释掉了。）
