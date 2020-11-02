@@ -9,12 +9,15 @@
 		<module>annotations</module>
 		<module>configuration</module>
         <module>fegin</module>
+        <module>zuul</module>
+        <module>redis_stream</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.3.RELEASE</version>
+		<!--<version>2.2.3.RELEASE</version> 我自己的版本，先注释掉-->
 		<!--<version>1.4.4.RELEASE</version>-->
+		<version>2.3.0.RELEASE</version>
 		<relativePath/>
 	</parent>
 	<groupId>com.wind</groupId>
@@ -72,10 +75,11 @@
 		<!--</dependency>-->
 
 		<!--开箱即用的运维断点-->
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-starter-actuator</artifactId>-->
-		<!--</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<!--<version>1.4.4.RELEASE</version>-->
+		</dependency>
 
 	</dependencies>
 
